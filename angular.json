@@ -30,7 +30,10 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.js",
+              "src/assets/jquery.dataTables.min.js"
+            ]
           },
           "configurations": {
             "production": {

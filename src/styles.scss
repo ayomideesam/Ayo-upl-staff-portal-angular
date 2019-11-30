@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+@import "assets/datatables.net-bs4/css/dataTables.bootstrap4.min.css";
+@import "assets/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css";
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+
+
+
+.dt-buttons {
+  margin-bottom: 10px;
+}
+
+.buttons-pdf {
+}
+
+.table-row {
+  background: #3c4146;
+  color: #fff;
+}
