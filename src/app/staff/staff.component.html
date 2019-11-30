@@ -1,0 +1,216 @@
+<div class="staffTab">
+  <h3> Staff Portal </h3>
+
+<div class="createButton">
+    <a href="" data-toggle="modal" data-target="#darkModalForm">
+    <span>
+      <i class="fas fa-user-tie"></i>
+    </span>
+    Create Staff
+    </a>
+</div>
+
+<!-- Modal for Create Staff -->
+<div class="modal fade" id="darkModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true" style="margin-top: 50px; width: 80%; height: 90%">
+  <div class="modal-dialog form-dark" role="document">
+    <!--Content-->
+    <div class="modal-content card card-image"> <!-- style="background-image: url('https://mdbootstrap.com/img/Photos/Others/pricing-table%20(7).jpg');" -->
+      <div class="text-black rgba-stylish-strong py-5 px-5 z-depth-4">
+        <!--Header-->
+        <div class="modal-header text-center pb-4" *ngIf="activeStaff">
+          <h3 class="modal-title w-100 Black-text font-weight-bold" id="myModalLabel"><strong>Create</strong> <a
+              class="green-text font-weight-bold"><strong> Staff</strong></a></h3>
+          <button type="button" class="close black-text" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">
+              <i class="far fa-times-circle"></i>
+            </span>
+          </button>
+        </div>
+        <!--Body-->
+        <!--{{ activeStaff | json }}-->
+        <form id="staffPortal" name="staffPortal" #staffData="ngForm" (ngSubmit)="createStaff()">
+          <div class="modal-body mx-3">
+            <div class="form-group md-form mb-5">
+              <i class="fas fa-user prefix grey-text"></i>
+              <input type="text" id="newfname" class="form-control validate" name="fname"
+                     [(ngModel)]="activeStaff.fname"
+                     [ngModelOptions]="{standalone: true}">
+              <!-- <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                Name is required
+              </div> -->
+              <label data-error="wrong" data-success="right" for="newfname">Your First Name</label>
+            </div>
+
+            <div class="form-group md-form mb-5">
+              <i class="fas fa-user prefix grey-text"></i>
+              <input type="text" id="newlname" class="form-control validate" name="lname"
+                     [(ngModel)]="activeStaff.lname"
+                     [ngModelOptions]="{standalone: true}">
+              <!-- <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                Name is required
+              </div> -->
+              <label data-error="wrong" data-success="right" for="newlname">Your Last Name</label>
+            </div>
+
+            <div class="form-group md-form mb-5">
+              <i class="fas fa-phone prefix grey-text"></i>
+              <input type="text" id="newphone" class="form-control validate" name="phone"
+                     [(ngModel)]="activeStaff.phone"
+                     [ngModelOptions]="{standalone: true}">
+              <label data-error="wrong" data-success="right" for="newphone">Your Phone Number</label>
+            </div>
+
+            <div class="form-group md-form mb-5">
+              <i class="fas fa-envelope prefix grey-text"></i>
+              <input type="email" id="newemail" class="form-control validate" name="email"
+                     [(ngModel)]="activeStaff.email" [ngModelOptions]="{standalone: true}">
+              <label data-error="wrong" data-success="right" for="newemail">Your Email Address</label>
+            </div>
+
+            <div class="form-group md-form mb-5">
+              <i class="fas fa-lock prefix grey-text"></i>
+              <input type="password" id="newpassword" class="form-control validate" name="password"
+                     [(ngModel)]="activeStaff.password" [ngModelOptions]="{standalone: true}">
+              <label data-error="wrong" data-success="right" for="newpassword">Your Password</label>
+            </div>
+
+          </div>
+          <div class="modal-footer d-flex justify-content-center">
+            <button type="submit" class="btn btn-deep-orange" data-dismiss="closeModal">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+
+
+<!-- Create Staff Modal Ends-->
+
+  <table class="table striped centered z-depth-3" id="staffTable">
+    <thead class="thead-dark">
+      <tr class="table-row">
+        <th class="no-sort"></th>
+        <th>Staff ID</th>
+        <th>Staff First Name</th>
+        <th>Staff Last Name</th>
+        <th>Staff Phone</th>
+        <th>Staff Email</th>
+        <th>Staff Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="staffs.length">
+      <tr *ngFor="let staff of staffs; let i = index" class="staff-row">
+        <td class="details-control"> </td>
+        <td> {{i+1}} </td>
+        <td> {{staff.fname}} </td>
+        <td> {{staff.lname}} </td>
+        <td> {{staff.phone}} </td>
+        <td> {{staff.email}} </td>
+        <td> {{staff.active == 1 ? 'Active' : 'Inactive' }} </td>
+        <td class="th-buttons">
+          <button class="toggleButton" (click)="toggleStaff(staff)">
+            <span>
+                <i class="fas fa-toggle-on"></i>
+            </span>
+          </button>
+              &nbsp;
+          <button class="viewButton" (click)="viewStaff(staff)">
+            <a href="" data-toggle="modal" data-target="#updateEditStaff">
+            <span>
+                <i class="fas fa-eye"></i>
+              <!-- <i class="fas fa-user-edit"></i> -->
+            </span>
+            </a>
+          </button>           &nbsp;
+
+          <button class="deleteButton" (click)="deleteStaff(staff)">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Modal for View Staff -->
+
+<div class="modal fade" id="updateEditStaff" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog form-dark" role="document">
+    <!--Content-->
+    <div class="modal-content card card-image"> <!-- style="background-image: url('https://mdbootstrap.com/img/Photos/Others/pricing-table%20(7).jpg');" -->
+      <div class="text-black rgba-stylish-strong py-5 px-5 z-depth-4">
+        <!--Header-->
+        <div class="modal-header text-center pb-4" *ngIf="activeStaff">
+          <h3 class="modal-title w-100 Black-text font-weight-bold" id="editStaffModal"><strong>View /
+            Update</strong> <a
+            class="green-text font-weight-bold"><strong> Staff Details </strong></a></h3>
+          <button type="button" class="close black-text" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">
+              <i class="far fa-times-circle"></i>
+            </span>
+          </button>
+        </div>
+        <!--Body-->
+        <!--{{ activeStaff | json }}-->
+        <form id="editStaffPortal" name="myModalLabel" #newStaffData="ngForm"
+              (ngSubmit)="updateStaff()">
+          <div class="modal-body mx-3">
+            <div class="form-group md-form mb-5">
+              <i class="fas fa-user prefix grey-text"></i>
+              <input type="text" id="updateFname" class="form-control validate" name="fname"
+                     [(ngModel)]="activeStaff.fname" [ngModelOptions]="{standalone: true}">
+              <!-- <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                Name is required
+              </div> -->
+              <label data-error="wrong" data-success="right" for="updateFname">Your First Name</label>
+            </div>
+
+            <div class="form-group md-form mb-5">
+              <i class="fas fa-user prefix grey-text"></i>
+              <input type="text" id="updateLname" class="form-control validate" name="lname"
+                     [(ngModel)]="activeStaff.lname" [ngModelOptions]="{standalone: true}">
+              <!-- <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                Name is required
+              </div> -->
+              <label data-error="wrong" data-success="right" for="updateLname">
+                Your Last Name
+              </label>
+            </div>
+
+            <div class="form-group md-form mb-5">
+              <i class="fas fa-phone prefix grey-text"></i>
+              <input type="text" id="updatePhone" class="form-control validate" name="phone"
+                     [(ngModel)]="activeStaff.phone" [ngModelOptions]="{standalone: true}">
+              <label data-error="wrong" data-success="right" for="updatePhone">
+                Your Phone Number
+              </label>
+            </div>
+
+            <div class="form-group md-form mb-5">
+              <i class="fas fa-envelope prefix grey-text"></i>
+              <input type="email" id="updateEmail" class="form-control validate" name="email"
+                     [(ngModel)]="activeStaff.email" [ngModelOptions]="{standalone: true}">
+              <label data-error="wrong" data-success="right" for="updateEmail">
+                Your Email Address
+              </label>
+            </div>
+
+          </div>
+          <div class="modal-footer d-flex justify-content-center">
+            <button type="submit" class="btn btn-deep-orange" data-dismiss="closeModal">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
