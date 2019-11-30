@@ -7,17 +7,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { StaffComponent } from './staff/staff.component';
-import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from './home/home.component';
-import { StaffDetailsComponent } from './staff-details/staff-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StaffComponent,
-    ContactComponent,
-    HomeComponent,
-    StaffDetailsComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
