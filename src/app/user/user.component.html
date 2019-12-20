@@ -1,0 +1,135 @@
+<div class="row page">
+  <div class="col s12">
+
+  </div>
+</div>
+
+<div class="container" id="container">
+  <div class="form-container sign-up-container">
+    <form id="userPortal" name="userPortal" #UserRegistrationForm="ngForm" (ngSubmit)="createUser()">
+      <h1>Create Account</h1>
+      <div class="social-container">
+        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+        <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <span>or use your email for registration</span>
+      <div class="form-group md-form">
+        <input type="text" id="UserName"
+               class="form-control validate"
+               name="name" #name="ngModel"
+               [(ngModel)]="activeUser.name"
+               [ngModelOptions]="{standalone: true}" required>
+        <div class="validation-error" *ngIf="name.invalid && name.touched" class="alert">
+          {{formError}}
+        </div>
+        <label data-error="wrong" data-success="right" for="UserName">Your User Name</label>
+      </div>
+
+      <div class="form-group md-form">
+        <input type="text" id="createEmail"
+               class="form-control validate"
+               name="email" #email="ngModel"
+               [(ngModel)]="activeUser.email"
+               [ngModelOptions]="{standalone: true}" required>
+        <div class="validation-error" *ngIf="email.invalid && email.touched" class="alert">
+          {{formError}}
+        </div>
+        <label data-error="wrong" data-success="right" for="createEmail">Your Email Address</label>
+      </div>
+
+      <div class="form-group md-form">
+        <input type="password" id="createPassword"
+               class="form-control validate"
+               name="password" #password="ngModel"
+               [(ngModel)]="activeUser.password"
+               [ngModelOptions]="{standalone: true}" required>
+        <div class="validation-error" *ngIf="password.invalid && password.touched" class="alert">
+          {{formError}}
+        </div>
+        <label data-error="wrong" data-success="right" for="createPassword">Your Password</label>
+      </div>
+
+      <button [disabled]="!UserRegistrationForm.valid" type="submit">
+        Register
+      </button>
+      <button type="button" class="mt-2" data-dismiss="closeModal" (click)="resetForm(UserRegistrationForm)">
+        Reset
+      </button>
+    </form>
+  </div>
+
+  <!-- SIGN IN -->
+
+  <div class="form-container sign-in-container">
+    <form id="loginPortal" name="loginPortal" #UserLoginForm="ngForm" (ngSubmit)="loginUser()">
+      <h1>Sign in</h1>
+      <div class="social-container">
+        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+        <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <span>or use your account</span>
+      <div class="form-group md-form">
+        <!--<i class="fas fa-envelope prefix grey-text"></i>-->
+        <input type="text" id="loginEmail"
+               class="form-control validate"
+               name="email" #email="ngModel"
+               [(ngModel)]="activeLogin.email"
+               [ngModelOptions]="{standalone: true}" required>
+        <div class="validation-error" *ngIf="email.invalid && email.touched" class="alert">
+          {{formError}}
+        </div>
+        <label data-error="wrong" data-success="right" for="loginEmail">Your Email Address</label>
+      </div>
+      <div class="form-group md-form">
+        <input type="password" id="loginPassword"
+               class="form-control validate"
+               name="password" #password="ngModel"
+               [(ngModel)]="activeLogin.password"
+               [ngModelOptions]="{standalone: true}" required>
+        <div class="validation-error" *ngIf="password.invalid && password.touched" class="alert">
+          {{formError}}
+        </div>
+        <label data-error="wrong" data-success="right" for="loginPassword">Your Password</label>
+      </div>
+
+      <a href="#">Forgot your password?</a>
+      <button [disabled]="!UserLoginForm.valid" type="submit">
+        Login
+      </button>
+
+      <button type="button" class="mt-2" data-dismiss="closeModal" (click)="resetForm(UserLoginForm)">
+        Reset
+      </button>
+    </form>
+  </div>
+
+  <div class="overlay-container">
+    <div class="overlay">
+      <div class="overlay-panel overlay-left">
+        <h1>Welcome Back!</h1>
+        <p>To keep connected with us please login with your personal info</p>
+        <button class="ghost" id="signIn">Sign In</button>
+      </div>
+      <div class="overlay-panel overlay-right">
+        <h1>Hello, Friend!</h1>
+        <p>Enter your personal details and start journey with Upperlink</p>
+        <button class="ghost" id="signUp">Sign Up</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!--
+<footer>
+  <p>
+    Created with <i class="fa fa-heart"></i> by
+    <a target="_blank" href="https://florin-pop.com">Florin Pop</a>
+    - Read how I created this and how you can join the challenge
+    <a target="_blank" href="https://www.florin-pop.com/blog/2019/03/double-slider-sign-in-up-form/">here</a>.
+  </p>
+</footer>
+-->

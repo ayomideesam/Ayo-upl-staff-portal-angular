@@ -1,0 +1,62 @@
+<div class="row">
+  <div class="col s8 offset-s2">
+    <div class="card">
+      <div class="sm-jumbotron center-align">
+        <h2>
+          User Registration
+        </h2>
+      </div>
+      <form id="userPortal" name="userPortal" #UserRegistrationForm="ngForm" (ngSubmit)="createUser()">
+        <div class="modal-body mx-3">
+          <div class="form-group md-form mb-5">
+            <i class="fas fa-user prefix grey-text"></i>
+            <input type="text" id="UserName"
+                   class="form-control validate"
+                   name="name" #name="ngModel"
+                   [(ngModel)]="activeUser.name"
+                   [ngModelOptions]="{standalone: true}" required>
+            <div class="validation-error" *ngIf="name.invalid && name.touched" class="alert alert-danger">
+              {{formError}}
+            </div>
+            <label data-error="wrong" data-success="right" for="UserName">Your User Name</label>
+          </div>
+
+          <div class="form-group md-form mb-5">
+            <i class="fas fa-envelope prefix grey-text"></i>
+            <input type="text" id="EmailAddress"
+                   class="form-control validate"
+                   name="email" #email="ngModel"
+                   [(ngModel)]="activeUser.email"
+                   [ngModelOptions]="{standalone: true}" required>
+            <div class="validation-error" *ngIf="email.invalid && email.touched" class="alert alert-danger">
+              {{formError}}
+            </div>
+            <label data-error="wrong" data-success="right" for="EmailAddress">Your Email Address</label>
+          </div>
+
+          <div class="form-group md-form mb-5">
+            <i class="fas fa-lock prefix grey-text"></i>
+            <input type="text" id="UserPassword"
+                   class="form-control validate"
+                   name="password" #password="ngModel"
+                   [(ngModel)]="activeUser.password"
+                   [ngModelOptions]="{standalone: true}" required>
+            <div class="validation-error" *ngIf="name.invalid && name.touched" class="alert alert-danger">
+              {{formError}}
+            </div>
+            <label data-error="wrong" data-success="right" for="UserPassword">Your Password</label>
+          </div>
+        </div>
+
+        <div class="modal-footer d-flex justify-content-center">
+          <button [disabled]="!UserRegistrationForm.valid" type="submit" class="btn btn-primary">
+            Register
+          </button>
+          <button type="button" class="btn btn-secondary" data-dismiss="closeModal" (click)="resetForm(UserRegistrationForm)">
+            Reset
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

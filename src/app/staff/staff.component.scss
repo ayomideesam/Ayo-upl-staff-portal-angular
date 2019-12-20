@@ -1,7 +1,19 @@
+.staff {
+  margin-bottom: -10px;
+  background-size: 100%;
+  width: 100%;
+  height: auto !important;
+  background: url("../images/middle-cover.jpg");
+  padding-bottom: 1px;
+}
 .staffTab {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
+}
+
+h3 {
+  padding-top: 20px;
 }
 
 .th-buttons {
@@ -76,6 +88,7 @@ a {
 
 .modal .modal-content {
   padding: 10px !important;
+  margin-top: -30px;
 }
 
 .modal-dialog {
@@ -94,6 +107,17 @@ label {
 
 .md-form i {
   font-size: 20px;
+  margin-top: 20px;
+}
+
+.fa-times-circle {
+  font-weight: 400;
+  font-size: 30px;
+  margin-top: 20px;
+}
+
+.fa-times-circle:hover {
+  color: red;
 }
 
 .dt-buttons .dataTables_length label {
@@ -120,3 +144,65 @@ label {
   margin-top: -20px !important;
 }
 
+.modal-footer .btn+.btn {
+  margin-bottom: 0;
+  margin-left: 5px;
+  margin-top: -1px;
+  background: indianred;
+}
+
+.swal2-popup {
+  display: none;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  justify-content: center;
+  width: 32em;
+  max-width: 100%;
+  padding: 3.25em !important;
+  border: none;
+  border-radius: 1.3125em;
+  background: #fff;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+
+.swal2-cancel .btn .btn-danger {
+  margin-right: 5px !important;
+}
+
+tbody {
+  background: rgba(255, 255, 255, .97);
+}
+.margins {
+  margin-bottom: 13.5rem;
+  padding: 46px;
+}
+.prefix ~ label {
+  margin-left: 0 !important;
+}
+
+input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #9e9e9e;
+  border-radius: 0;
+  outline: none;
+  height: 1.5rem !important;
+  width: 94% !important;
+  font-size: 16px;
+  margin: -25px 0 8px 28px !important;
+  padding: 1px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  -webkit-transition: border .3s, -webkit-box-shadow .3s;
+  transition: border .3s, -webkit-box-shadow .3s;
+  transition: box-shadow .3s, border .3s;
+  transition: box-shadow .3s, border .3s, -webkit-box-shadow .3s;
+}

@@ -1,0 +1,24 @@
+.row {
+  margin-top: 50px;
+  margin-bottom: 160px;
+}
+
+h2 {
+  padding-top: 20px;
+}
+
+label {
+  font-size: 15px;
+  font-family: "Raleway", sans-serif;
+}
+
+i {
+  font-size: 20px;
+}
+
+.modal-footer .btn+.btn {
+  margin-bottom: 0;
+  margin-left: 5px;
+  margin-top: -1px;
+  background: indianred;
+}

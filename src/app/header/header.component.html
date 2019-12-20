@@ -1,0 +1,20 @@
+<nav>
+  <div class="nav-wrapper">
+    <a routerLink="/" class="logo">
+      <img src="../assets/images/upl.png" class="nav-image" alt="">
+    </a>
+    <ul id="nav-mobile nav-text" class="right hide-on-med-and-down">
+      <li>
+        <a [routerLink]="['/user']">
+          <i class="fas fa-user prefix white-text"></i>
+        </a>
+      </li>
+
+      <li *ngIf="token">
+        <a [routerLink]="['/user']">
+          <i class="fas fa-sign-out-alt"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

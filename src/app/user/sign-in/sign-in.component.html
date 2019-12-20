@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col s8 offset-s2">
+    <div class="card">
+      <div class="sm-jumbotron center-align">
+        <h2>
+          User Login
+        </h2>
+      </div>
+      <form id="loginPortal" name="loginPortal" #UserLoginForm="ngForm" (ngSubmit)="loginUser()">
+        <div class="modal-body mx-3">
+          <div class="form-group md-form mb-5">
+            <i class="fas fa-envelope prefix grey-text"></i>
+            <input type="text" id="EmailAddress"
+                   class="form-control validate"
+                   name="email" #email="ngModel"
+                   [(ngModel)]="activeLogin.email"
+                   [ngModelOptions]="{standalone: true}" required>
+            <div class="validation-error" *ngIf="email.invalid && email.touched" class="alert alert-danger">
+              {{formError}}
+            </div>
+            <label data-error="wrong" data-success="right" for="EmailAddress">Your Email Address</label>
+          </div>
+
+          <div class="form-group md-form mb-5">
+            <i class="fas fa-lock prefix grey-text"></i>
+            <input type="text" id="UserPassword"
+                   class="form-control validate"
+                   name="password" #password="ngModel"
+                   [(ngModel)]="activeLogin.password"
+                   [ngModelOptions]="{standalone: true}" required>
+            <div class="validation-error" *ngIf="password.invalid && password.touched" class="alert alert-danger">
+              {{formError}}
+            </div>
+            <label data-error="wrong" data-success="right" for="UserPassword">Your Password</label>
+          </div>
+        </div>
+
+        <div class="modal-footer d-flex justify-content-center">
+          <button [disabled]="!UserLoginForm.valid" type="submit" class="btn btn-primary">
+            Login
+          </button>
+          <button type="button" class="btn btn-secondary" data-dismiss="closeModal" (click)="resetForm(UserLoginForm)">
+            Reset
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {AfterViewInit, Component} from '@angular/core';
 import { HttpService } from './http.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { HttpService } from './http.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements  AfterViewInit{
   title = 'ngee';
   clickCounter = 0;
   serverName = 'BioChoice';
@@ -17,39 +17,16 @@ export class AppComponent {
   ServerID = '';
   name = '';
   lists = Object;
+  token : string = null;
 
   constructor(private web: HttpService) {
+
     setTimeout(() => {
       this.buttonState = false;
     }, 5500);
   }
 
-  ngOnInit() {
-    this.web.getStaffList().subscribe((data: any) => {
-      this.lists = data.data;
-      console.log(this.lists);
-    });
-  }
-
-  toggleServerStatus() {
-    this.statusFlag = !this.statusFlag;
-    if (this.statusFlag === true) {
-      this.serverStatus = 'Online';
-    } else {
-      this.serverStatus = 'Offline';
-    }
-    return this.serverStatus;
-  }
-
-  countClick() {
-    this.clickCounter += 1;
-  }
-
-  buttonClick() {
-    window.alert('Well Done');
-  }
-
-  reset() {
-    this.name = '';
+  ngAfterViewInit() {
+  this.token = sessionStorage.getItem('user_token');
   }
 }
