@@ -21,34 +21,61 @@ nav ul li a {
   text-align: center;
 }
 
-button {
-  cursor: pointer;
+i {
+  margin: auto !important;
+  text-align: center;
+  line-height: 0 !important;
+  height: 0 !important;
 }
 
-.page {
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
+.waggle {
+cursor: pointer;
+border-radius: 15px 0 0 15px !important;
+background-image: linear-gradient(to right, #ff8a00, #da1b60);
+margin-top: 4px;
+margin-right: 7px;
+height: 4rem;
+width: 5rem;
+animation: fade 3s 6.5s forwards ease infinite;
+animation-iteration-count: 5;
 }
 
-nav {
-  display: block;
-}
+@keyframes fade {
+  15% {
+    opacity: 0.10;
+  }
 
-nav ul li a {
-  color: #000;
-  font-size: 20px;
-  text-decoration: none !important;
-
-  &:hover {
-    background: rgba(255, 255, 255, .6);
-    border-radius: 15px 0 0 15px;
+  25% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0.25;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
-.user {
-  list-style-type: none;
-  border-radius: 15px 0 0 15px !important;
-  background-image: linear-gradient(to right, #ff8a00, #da1b60);
-  margin-top: 1px;
+.page {
+width: 80%;
+margin-left: auto;
+margin-right: auto;
+}
+
+nav {
+display: block;
+}
+
+nav ul li a {
+color: #000;
+font-size: 20px;
+text-decoration: none !important;
+
+&:hover {
+background: rgba(255, 255, 255, .6);
+border-radius: 15px 0 0 15px;
+}
 }

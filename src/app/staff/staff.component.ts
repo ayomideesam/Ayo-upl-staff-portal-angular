@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { HttpService } from './../http.service';
+import { HttpService } from '../http.service';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import Swal from 'sweetalert2';
@@ -116,7 +116,7 @@ export class StaffComponent implements OnInit {
       res => {
         this.getStaffList();
         $('.modal').modal('hide');
-        this.toastr.success('New Staff Record Added Successfully', 'Staff Staff Details Create');
+        this.toastr.success('New Staff Record Added Successfully', 'Staff Details Create');
         this.formValues.resetForm();
         // window.location.reload();
         console.log(res);
@@ -237,4 +237,9 @@ export class StaffComponent implements OnInit {
     };
   }
 
+  logout() {
+    sessionStorage.removeItem('user_token');
+    this.toastr.success('Staff Logged Out Successfully', 'Staff Logout');
+    this.router.navigate(['/user']);
+  }
 }

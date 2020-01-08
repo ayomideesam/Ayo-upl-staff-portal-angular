@@ -1,3 +1,87 @@
+/* Nav Styles Starts Here*/
+.nav-wrapper {
+  background: #ccc;
+  height: 4.5rem !important;
+}
+
+.nav-text {
+  color: #000000;
+}
+
+nav ul li a {
+  color: antiquewhite !important;
+  font-size: 20px;
+}
+
+.nav-image {
+  margin: 15px;
+  width: 12%;
+}
+
+.welcome {
+  text-align: center;
+}
+
+i {
+  margin: auto !important;
+  text-align: center;
+  line-height: 0 !important;
+  height: 0 !important;
+}
+
+.waggle {
+  cursor: pointer;
+  border-radius: 15px 0 0 15px !important;
+  background-image: linear-gradient(to right, #ff8a00, #da1b60);
+  margin-top: 4px;
+  margin-right: 7px;
+  height: 4rem;
+  width: 5rem;
+  animation: fade 3s 6.5s forwards ease infinite;
+  animation-iteration-count: 5;
+}
+
+@keyframes fade {
+  15% {
+    opacity: 0.10;
+  }
+
+  25% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0.25;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.page {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+nav {
+  display: block;
+}
+
+nav ul li a {
+  color: #000;
+  font-size: 20px;
+  text-decoration: none !important;
+
+  &:hover {
+    background: rgba(255, 255, 255, .6);
+    border-radius: 15px 0 0 15px;
+  }
+}
+/* Nav Styles Ends Here*/
+
 .staff {
   margin-bottom: -10px;
   background-size: 100%;
@@ -46,7 +130,7 @@ a {
   cursor: pointer;
 
   &:hover {
-    padding: 10px;
+    background: indianred;
   }
 }
 
@@ -56,7 +140,7 @@ a {
   cursor: pointer;
 
   &:hover {
-    padding: 10px;
+    background: indianred;
   }
 }
 
@@ -66,7 +150,7 @@ a {
   cursor: pointer;
 
   &:hover {
-    padding: 10px;
+    background: indianred;
   }
 }
 
@@ -88,7 +172,8 @@ a {
 
 .modal .modal-content {
   padding: 10px !important;
-  margin-top: -30px;
+  margin-top: -25px;
+  border-radius: 10px;
 }
 
 .modal-dialog {
@@ -113,7 +198,7 @@ label {
 .fa-times-circle {
   font-weight: 400;
   font-size: 30px;
-  margin-top: 20px;
+  margin-top: 20px !important;
 }
 
 .fa-times-circle:hover {

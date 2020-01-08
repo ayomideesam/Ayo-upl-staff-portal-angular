@@ -4,14 +4,14 @@
       <img src="../assets/images/ayo.png" class="nav-image" alt="">
     </a>
     <ul id="nav-mobile nav-text" class="right hide-on-med-and-down">
-      <li class="user">
-        <a [routerLink]="['/user']">
-          <i class="fas fa-user prefix white-text"></i> Login
-        </a>
+      <li>
+        <button [routerLink]="['/user']" class="waggle">
+            <i class="fas fa-user prefix white-text"></i>
+        </button>
       </li>
 
-      <li *ngIf="token">
-        <a [routerLink]="['/user']">
+      <li *ngIf="user_token">
+        <a [routerLink]="['/user']" (click)="logout()">
           <i class="fas fa-sign-out-alt"></i>
         </a>
       </li>

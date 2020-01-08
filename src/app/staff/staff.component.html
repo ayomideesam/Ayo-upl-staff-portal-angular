@@ -1,3 +1,18 @@
+<nav>
+  <div class="nav-wrapper">
+    <a routerLink="/" class="logo">
+      <img src="../assets/images/ayo.png" class="nav-image" alt="">
+    </a>
+    <ul id="nav-mobile nav-text" class="right hide-on-med-and-down">
+      <li>
+        <button [routerLink]="['/user']" class="waggle" (click)="logout()">
+          <i class="fas fa-sign-out-alt"></i>
+        </button>
+      </li>
+    </ul>
+  </div>
+</nav>
+
 <div class="staff">
   <div class="staffTab">
   <h3> Staff Portal </h3>
@@ -62,7 +77,7 @@
 
             <div class="form-group md-form mb-5">
               <i class="fas fa-phone prefix grey-text"></i>
-              <input type="tel"
+              <input type="number"
                      id="newphone"
                      class="form-control validate"
                      name="phone" #phone="ngModel"
@@ -221,7 +236,7 @@
 
             <div class="form-group md-form mb-5">
               <i class="fas fa-phone prefix grey-text"></i>
-              <input type="text" id="updatePhone" class="form-control validate" name="phone"
+              <input type="number" id="updatePhone" class="form-control validate" name="phone"
                      [(ngModel)]="activeStaff.phone" [ngModelOptions]="{standalone: true}">
               <label data-error="wrong" data-success="right" for="updatePhone">
                 Your Phone Number

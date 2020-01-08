@@ -72,7 +72,7 @@ export class UserComponent implements OnInit {
         console.log("token", res);
         if(!res.token) {
           this.toast.error('Token not set', 'Token Error');
-        } else{
+        } else {
           sessionStorage.setItem('user_token', res.token);
           setTimeout(() => {
             /** spinner ends after 5 seconds */
